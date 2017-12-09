@@ -4,7 +4,7 @@ from flask_jwt import JWT
 
 from security import authenticate, identity
 from user import UserRegister
-from item import Item, ItemList
+from Books import Book, BookList
 
 app = Flask(__name__)
 app.secret_key = 'jose'
