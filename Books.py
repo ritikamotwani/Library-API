@@ -14,7 +14,7 @@ class Book(Resource):
 		required = True,
 		help="This field cannot be left blank."
 	)
-	@jwt_required
+	@jwt_required()
 	def get(self, name):
 		book = self.find_by_name(name)
 		if book:
@@ -30,7 +30,7 @@ class Book(Resource):
 		row = result.fetchone()
 		connection.close()
 		if row:
-			return {'item': {'name': row[0], 'author': row[1], 'status': row[2]}}
+			return {'book': {'name':row[0],'author': row[1], 'status': row[2]}}
 
 	def post(self, name):
 		if self.find_by_name(name):
